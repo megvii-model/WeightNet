@@ -1,5 +1,5 @@
 # [WeightNet]()
-This repository provides MegEngine implementation for "WeightNet: Revisiting the Design Space of Weight Network".
+This repository provides MegEngine implementation for "[WeightNet: Revisiting the Design Space of Weight Network](https://arxiv.org/pdf/2007.11823.pdf)".
 
 <!-- ![introduce image](image/weightnet.png) -->
 <img width="863" height="274" src="figures/weightnet.png"/>
