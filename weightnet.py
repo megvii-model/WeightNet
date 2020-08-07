@@ -33,6 +33,11 @@ class WeightNet(M.Module):
         x_w = self.sigmoid(x_w)
         x_w = self.wn_fc2(x_w)
 
+        if x.shape[0] == 1: # case of batch size = 1
+            x_w = x_w.reshape(self.oup, self.inp, self.ksize, self.ksize)
+            x = F.conv2d(x, weight=x_w, stride=self.stride, padding=self.pad)
+            return x
+        
         x = x.reshape(1, -1, x.shape[2], x.shape[3])
         x_w = x_w.reshape(-1, self.oup, self.inp, self.ksize, self.ksize)
         x = F.conv2d(x, weight=x_w, stride=self.stride, padding=self.pad, groups=x_w.shape[0])
